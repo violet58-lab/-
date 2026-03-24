@@ -18,7 +18,7 @@ public:
     
     int get(int index) {
         if(index<0 || index>(_size-1))return -1;//下标有效性判断
-        LinkedNode* cur = _dummyhead->next;
+        LinkedNode* cur = _dummyhead->next;//定义临时指针遍历，不去改头结点
         while(index--){
             cur = cur->next;
         }
@@ -34,7 +34,7 @@ public:
     
     void addAtTail(int val) {
         LinkedNode* cur = _dummyhead;
-        while(cur->next){cur = cur->next;}
+        while(cur->next){cur = cur->next;}//找尾部结点，next为空
         LinkedNode* newNode = new LinkedNode(val);
         cur->next = newNode;
         _size++;
